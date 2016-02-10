@@ -1,2 +1,8 @@
-app/code/community/DigitalPianism/ProductExport  app/code/community/DigitalPianism/ProductExport 
-app/etc/modules/DigitalPianism_ProductExport.xml app/etc/modules/DigitalPianism_ProductExport.xml
+# DigitalPianism_Quickshop
+app/code/community/DigitalPianism/Quickshop                             app/code/community/DigitalPianism/Quickshop
+app/etc/modules/DigitalPianism_Quickshop.xml                            app/etc/modules/DigitalPianism_Quickshop.xml
+app/design/frontend/base/default/layout/digitalpianism/quickshop.xml    app/design/frontend/base/default/layout/digitalpianism/quickshop.xml
+app/design/frontend/base/default/template/digitalpianism/quickshop      app/design/frontend/base/default/template/digitalpianism/quickshop
+js/lib/digitalpianism/quickshop                                         js/lib/digitalpianism/quickshop
+skin/frontend/base/default/css/digitalpianism/quickshop                 skin/frontend/base/default/css/digitalpianism/quickshop
+skin/frontend/base/default/js/digitalpianism/quickshop                  skin/frontend/base/default/js/digitalpianism/quickshop
