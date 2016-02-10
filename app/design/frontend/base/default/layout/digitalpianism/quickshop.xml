@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+    <digitalpianism_quickshop_handle>
+        <reference name="head">
+            <action method="addJs"><name>lib/jquery/jquery-1.10.2.min.js</name></action>
+            <action method="addJs"><name>lib/jquery/noconflict.js</name></action>
+            <action method="addJs"><name>lib/digitalpianism/quickshop/bootstrap.js</name></action>
+            <action method="addItem"><type>skin_css</type><name>css/digitalpianism/quickshop/styles.css</name><params/></action>
+            <action method="addJs"><script>varien/product.js</script></action>
+            <action method="addJs"><script>varien/configurable.js</script></action>
+            <action method="addJs"><script>calendar/calendar.js</script></action>
+            <action method="addJs"><script>calendar/calendar-setup.js</script></action>
+            <action method="addItem"><type>skin_js</type><name>js/bundle.js</name></action>
+            <action method="addItem" ifconfig="configswatches/general/enabled"><type>skin_js</type><name>js/configurableswatches/swatches-product.js</name></action>
+        </reference>
+        <reference name="before_body_end">
+            <block type="core/template" name="quickshop" as="quickshop">
+                <action method="setTemplate" ifconfig="quickshop/options/enable">
+                    <template>digitalpianism/quickshop/modal.phtml</template>
+                </action>
+            </block>
+        </reference>
+    </digitalpianism_quickshop_handle>
+
+	<catalog_category_layered>
+        <update handle="digitalpianism_quickshop_handle" />
+	</catalog_category_layered>
+	
+	<catalog_category_default>
+        <update handle="digitalpianism_quickshop_handle" />
+	</catalog_category_default>
+	
+	<catalogsearch_result_index>
+        <update handle="digitalpianism_quickshop_handle" />
+	</catalogsearch_result_index>
+
+	<review_product_list>
+        <update handle="digitalpianism_quickshop_handle" />
+	</review_product_list>
+   
+    <quickshop_product_view translate="label">    
+        <label>Catalog Product Ajax View (Any)</label>
+        <!-- Mage_Catalog -->
+        <reference name="root">
+            <action method="setTemplate">
+                <template>digitalpianism/quickshop/page/quickshop.phtml</template>
+            </action>
+        </reference>
+        <update handle="catalog_product_view" />
+    </quickshop_product_view>                
+    
+</layout> 

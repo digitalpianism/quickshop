@@ -1,0 +1,35 @@
+<?xml version="1.0"?> 
+<config>
+    <modules> 
+        <DigitalPianism_Quickshop>
+            <version>1.0.6</version>
+        </DigitalPianism_Quickshop>
+    </modules>
+    <global>
+        <helpers>
+            <quickshop>
+                <class>DigitalPianism_Quickshop_Helper</class>
+            </quickshop>
+        </helpers>
+    </global>
+    <frontend>
+        <routers>
+            <quickshop>
+                <use>standard</use>
+                <args>
+                    <module>DigitalPianism_Quickshop</module>
+                    <frontName>quickshop</frontName>
+                </args>
+            </quickshop>
+        </routers>
+        <layout>
+           <updates>
+               <quickshop>
+                   <file>digitalpianism/quickshop.xml</file>
+               </quickshop>
+           </updates>
+        </layout>
+    </frontend>
+</config>
+
+   

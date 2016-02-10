@@ -1,0 +1,66 @@
+<?php /* Quickshop Modal */ ?>
+<div id="quickshop-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+		</div>
+		<div class="modal-body">
+			<div class="throbber"></div>
+		</div>
+		<?php /* <div class="modal-footer"> </div> */ ?>
+	</div>
+</div>
+
+<script type="text/javascript">
+
+	function showQuickView(link, e) {
+		var quickUrl = jQuery(link).data('url');
+
+		jQuery.get(quickUrl, function(data) {
+			jQuery('.modal-body').html(data);
+			// Call JS that is supposed to be loaded on document load but as to be loaded later due to AJAX use
+			jQuery.get('<?php echo $this->getSkinUrl('js/digitalpianism/quickshop/script.js') ?>', function(data) {});
+		});
+	}
+
+	function responsiveResize()
+	{
+		// Responsive resize quickshop modal
+		var containerWidth = jQuery('.main').innerWidth();
+		jQuery('#quickshop-modal').css('width',containerWidth);
+		jQuery('#quickshop-modal').css('margin-left','-'+(containerWidth/2)+'px');
+		jQuery('#quickshop-modal .modal-body').css('max-height',jQuery(window).height() * 2 / 3);
+		jQuery('#quickshop-modal .modal-body').css('height',jQuery(window).height() * 2 / 3);
+	}
+
+
+	jQuery(document).ready(function() {
+		// Hide quickshop link if the viewport is too small
+		if (jQuery(window).width()<770)
+		{
+			jQuery('.quick-view-link:not(.product-image)').hide();
+		}
+		else
+		{
+			jQuery('.quick-view-link').on('click', function(e) {
+				showQuickView(this, e);
+			});
+
+			// empty quickview modal content body
+			jQuery('#quickshop-modal').on('hide',function(e){
+				jQuery('.modal-body').html('<div class="throbber"></div>');
+			});
+		}
+
+		responsiveResize();
+	});
+
+	jQuery(window).resize(function(){
+		// Hide quickshop link if the viewport is too small
+		if (jQuery(window).width()<770)
+		{
+			jQuery('.quick-view-link:not(.product-image)').hide();
+		}
+		responsiveResize();
+	});
+</script>

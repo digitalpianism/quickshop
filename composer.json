@@ -1,0 +1,16 @@
+{
+  "name": "digitalpianism/quickshop",
+  "type": "magento-module",
+  "license":"OSL-3.0",
+  "description":"AJAX Product View Module from the catalog page",
+  "require": {
+    "php": ">=5.3",
+    "magento-hackathon/magento-composer-installer": "*"
+  },
+  "authors":[
+    {
+      "name":"Raphael Petrini",
+      "email":"contact@digital-pianism.com"
+    }
+  ]
+}
